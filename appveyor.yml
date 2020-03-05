@@ -2,17 +2,17 @@ version: 1.0.{build}
 image: Visual Studio 2019
 build_script:
 - cmd: >-
-    mkdir x86
+    mkdir x64
 
-    cd x86
+    cd x64
 
-    cmake -A x86 ../
+    cmake -A x64 ../
 
     msbuild ALL_BUILD.vcxproj /p:Configuration=Release
 
 artifacts:
-- path: x86/Release
-  name: learn_opengl@x86
+- path: x64/Release
+  name: learn_opengl@x64
 deploy:
 - provider: GitHub
   auth_token:
