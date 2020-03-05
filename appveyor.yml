@@ -1,0 +1,34 @@
+version: 1.0.{build}
+image: Visual Studio 2019
+build_script:
+- cmd: >-
+    mkdir x86
+
+    cd x86
+
+    cmake ../
+
+    msbuild ALL_BUILD.vcxproj /p:Configuration=Release
+
+    cd ../
+
+    mkdir x64
+
+    cd x64
+
+    cmake ../ -A x64
+
+    msbuild ALL_BUILD.vcxproj /p:Configuration=Release
+
+artifacts:
+- path: x64/Release
+  name: learn_opengl@x64
+- path: x86/Release
+  name: learn_opengl@x86
+deploy:
+- provider: GitHub
+  auth_token:
+    secure: U8373EzCEIi+fvS6fuw52T7Uvwylslbz5OglnKfScYXUs7Acn7v4Kns+T0aqzOcK
+  on:
+    # branch: master
+    APPVEYOR_REPO_TAG: true 
