@@ -11,4 +11,5 @@ INCLUDE_DIRECTORIES(include)
 add_executable(helloworld ${SRC_LIST})
 TARGET_LINK_LIBRARIES(helloworld 
     ${PROJECT_SOURCE_DIR}/lib/glfw3.lib
+    ${PROJECT_SOURCE_DIR}/lib/OpenGL32.Lib
 )
