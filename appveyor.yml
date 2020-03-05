@@ -6,7 +6,7 @@ build_script:
 
     cd x86
 
-    cmake ../
+    cmake -A x86 ../
 
     msbuild ALL_BUILD.vcxproj /p:Configuration=Release
 
