@@ -10,19 +10,7 @@ build_script:
 
     msbuild ALL_BUILD.vcxproj /p:Configuration=Release
 
-    cd ../
-
-    mkdir x64
-
-    cd x64
-
-    cmake ../ -A x64
-
-    msbuild ALL_BUILD.vcxproj /p:Configuration=Release
-
 artifacts:
-- path: x64/Release
-  name: learn_opengl@x64
 - path: x86/Release
   name: learn_opengl@x86
 deploy:
